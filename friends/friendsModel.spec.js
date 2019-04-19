@@ -22,4 +22,16 @@ describe('The Friends Model', () => {
     })
   })
 
+  describe('remove()', () => {
+    beforeEach(() => {
+      return db('friends').truncate();
+    })
+    it('should remove a friend from the db', async () => {
+      const friend = await Friends.insert({ name: 'chandler' });
+      const removed = await Friends.remove(friend.id);
+      // expect(friend.id).toBe(1);
+      expect(removed).toBe(1);
+    })
+  })
+
 })

@@ -19,6 +19,8 @@ async function insert(friend) {
 }
 
 function remove(id) {
-  return db('friends').where(id).del();
+  return db('friends')
+    .where('id', id)
+    .del();
 }
 

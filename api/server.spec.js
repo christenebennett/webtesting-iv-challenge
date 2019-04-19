@@ -38,6 +38,18 @@ describe('the server', () => {
       expect(res.status).toBe(500);
     })
 
+  })
+  describe('DELETE /friends/id', () => {
+    it('should return status 204 successfully deleted', async () => {
+      const res = await request(server).delete('/friends/1');
+      expect(res.status).toBe(204);
+    })
+
+    // it('should return status 500 when body is incorrect', async () => {
+    //   const body = {  }
+    //   const res = await request(server).post('/friends').send(body);
+    //   expect(res.status).toBe(500);
+    // })
 
   })
 

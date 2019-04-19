@@ -26,6 +26,7 @@ describe('The Friends Model', () => {
     beforeEach(() => {
       return db('friends').truncate();
     })
+    
     it('should remove a friend from the db', async () => {
       const friend = await Friends.insert({ name: 'chandler' });
       const removed = await Friends.remove(friend.id);

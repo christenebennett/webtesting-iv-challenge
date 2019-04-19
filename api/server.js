@@ -35,7 +35,11 @@ server.delete('/friends/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const friend = await friends.remove(id);
-    res.status(204).json({ friend })
+    if (friend > 0) {
+      res.status(204).json({ friend })
+    } else {
+      res.status(404).json({message: 'Friend with that ID does not exist.'})
+    }
   } catch (error) {
     res.status(500).json({
       error: "The friend could not be removed"
